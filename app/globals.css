@@ -19,3 +19,234 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+  scrollbar-width: thick; /* For Firefox */
+  scrollbar-color: rgba(147, 51, 234, 0.5) rgba(255, 255, 255, 0.1); /* For Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 16px; /* Increase the width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(147, 51, 234, 0.5);
+  border-radius: 3px;
+  border: 2px solid transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(147, 51, 234, 0.7);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDelay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-fade-in-delay {
+  animation: fadeInDelay 1.5s ease-in-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-in-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Border animation */
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(147, 51, 234, 0.5);
+  }
+  50% {
+    border-color: rgba(255, 51, 204, 0.5);
+  }
+  100% {
+    border-color: rgba(147, 51, 234, 0.5);
+  }
+}
+
+.border-animate {
+  border-width: 5px;
+  animation: borderGlow 4s infinite alternate;
+}
+
+/*text shadow for heading*/
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/*gradient border*/
+
+.gradient-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #6a0dad, #ff00ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 8px;
+  background-color: #76c7c0;
+  width: 0;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.gradient-border-thin {
+  border: 1px solid transparent; /* Reduced border width */
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #6a0dad, #ff00ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* Achievement-specific animations */
+.glow-effect {
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 255, 0, 0.7), 0 0 30px rgba(255, 255, 0, 0.7), 0 0 40px rgba(255, 255, 0, 0.7);
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sparkle {
+  position: relative;
+}
+
+.sparkle::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: url('/path/to/sparkle.png') no-repeat center center;
+  animation: sparkle 1.5s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Project-specific animations */
+.project-glow-effect {
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.7), 0 0 20px rgba(147, 51, 234, 0.7), 0 0 30px rgba(147, 51, 234, 0.7), 0 0 40px rgba(147, 51, 234, 0.7);
+}
+
+.project-pulse {
+  animation: project-pulse 2s infinite;
+}
+
+@keyframes project-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.project-sparkle {
+  position: relative;
+}
+
+.project-sparkle::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: url('/path/to/project-sparkle.png') no-repeat center center;
+  animation: project-sparkle 1.5s infinite;
+}
+
+@keyframes project-sparkle {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
