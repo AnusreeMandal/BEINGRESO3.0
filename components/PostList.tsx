@@ -90,26 +90,15 @@ const PostList = () => {
           className={`group bg-gradient-to-r from-white to-purple-50 p-6 rounded-xl 
                      shadow-md hover:shadow-xl transition-all duration-500 
                      transform hover:translate-y-[-4px] hover:scale-[1.02]
-                     relative overflow-hidden max-w-md mx-auto border-2 border-purple-100 border-animate`}
+                     relative overflow-hidden max-w-md mx-auto border-2 border-purple-100`}
         >
-          {/* Animated background gradients */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br 
-                         from-purple-200 to-pink-200 rounded-full filter blur-2xl 
-                         opacity-20 group-hover:opacity-40 transition-all duration-700
-                         animate-pulse transform translate-x-16 -translate-y-8" />
-
           <div className="relative">
             <PostCard post={post} animated={animatedPosts[post.id]} />
           </div>
-
-          {/* Hover effect without border */}
-          <div className="absolute inset-0 border-2 border-transparent 
-                         group-hover:border-purple-200 rounded-xl 
-                         transition-all duration-500 pointer-events-none" />
         </div>
       ))}
     </div>
   );
 };
 
-export default PostList;
+export default PostList

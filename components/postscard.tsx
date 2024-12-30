@@ -14,9 +14,9 @@ const PostCard = ({ post, animated }: { post: any, animated: boolean }) => {
 
   useEffect(() => {
     if (post.type === 'achievement') {
-      // Achievement-specific animation
+      // Achievement-specific animation can be adjusted here
     } else if (post.type === 'project') {
-      // Project-specific animation
+      // Project-specific animation can be adjusted here
     }
   }, [post.type]);
 
@@ -26,8 +26,7 @@ const PostCard = ({ post, animated }: { post: any, animated: boolean }) => {
                  shadow-md hover:shadow-xl transition-all duration-500 
                  transform hover:translate-y-[-4px] hover:scale-[1.02]
                  relative overflow-hidden max-w-md mx-auto
-                 ${animated ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}
-                 ${post.type === 'achievement' ? 'glow-effect' : post.type === 'project' ? 'project-glow-effect' : ''}`}
+                 ${animated ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
     >
       {/* Three dots menu for options */}
       <div className="absolute top-2 right-2">
@@ -51,8 +50,7 @@ const PostCard = ({ post, animated }: { post: any, animated: boolean }) => {
               alt={post.author}
               className="w-12 h-12 rounded-full border-2 border-purple-200 group-hover:scale-110 transition-transform duration-300"
             />
-            <div className={`absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xs animate-bounce 
-              ${post.type === 'achievement' ? 'pulse' : post.type === 'project' ? 'project-pulse' : ''}`}>
+            <div className={`absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xs animate-bounce`}>
               {post.type === 'achievement' ? '🏆' : '🚀'}
             </div>
           </div>
@@ -101,4 +99,4 @@ const PostCard = ({ post, animated }: { post: any, animated: boolean }) => {
   );
 };
 
-export default PostCard
+export default PostCard;

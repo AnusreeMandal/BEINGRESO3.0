@@ -182,7 +182,7 @@ body {
   }
 }
 
-.sparkle {
+/*.sparkle {
   position: relative;
 }
 
@@ -204,7 +204,7 @@ body {
   50% {
     opacity: 1;
   }
-}
+}*/
 
 /* Project-specific animations */
 .project-glow-effect {
@@ -226,7 +226,7 @@ body {
     transform: scale(1);
   }
 }
-
+/*
 .project-sparkle {
   position: relative;
 }
@@ -250,7 +250,7 @@ body {
     opacity: 1;
   }
 }
-
+*/
 
 .group:hover .group-hover\:animate-bounce {
   animation: bounce 0.6s;
