@@ -1,6 +1,6 @@
 'use client' ;
 import React, { useState } from 'react';
-import BeCommunity from './beCommunity2/page';
+import BeCommunity from './beCommunity3/page';
 import AcademicsPage from './academicspage/page';
 
 const HomePage = () => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Calendar, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
 // Sample event data
@@ -41,6 +41,8 @@ const events = [
 ];
 
 const EventsList = () => {
+  const [participatedEvents, setParticipatedEvents] = useState<number[]>([]);
+
   const generateGoogleCalendarLink = (event: any) => {
     const { name, startDate, endDate, description, location } = event;
     return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -59,6 +61,12 @@ const EventsList = () => {
       hour: '2-digit',
       minute: '2-digit'
     });
+  };
+
+  const handleParticipate = (eventIndex: number) => {
+    if (!participatedEvents.includes(eventIndex)) {
+      setParticipatedEvents([...participatedEvents, eventIndex]);
+    }
   };
 
   return (
@@ -106,22 +114,36 @@ const EventsList = () => {
               </div>
             </div>
 
-            <a
-              href={generateGoogleCalendarLink(event)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 px-6 py-2.5 
-                         bg-gradient-to-r from-purple-600 to-pink-600 
-                         hover:from-purple-700 hover:to-pink-700
-                         text-white font-medium rounded-lg
-                         transform transition-all duration-300
-                         hover:translate-x-2 hover:shadow-lg
-                         active:scale-95 group"
-            >
-              <Calendar size={16} className="transition-transform duration-300 group-hover:scale-110" />
-              Add to Calendar
-              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:rotate-45" />
-            </a>
+            <div className="flex justify-between mt-4">
+              <a
+                href={generateGoogleCalendarLink(event)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 
+                           bg-gradient-to-r from-purple-600 to-pink-600 
+                           hover:from-purple-700 hover:to-pink-700
+                           text-white font-medium text-sm rounded-lg
+                           transform transition-all duration-300
+                           hover:translate-x-2 hover:shadow-lg
+                           active:scale-95 group"
+              >
+                <Calendar size={16} className="transition-transform duration-300 group-hover:scale-110" />
+                Add to Calendar
+                <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:rotate-45" />
+              </a>
+
+              <button
+                onClick={() => handleParticipate(index)}
+                className={`px-4 py-2 rounded-lg text-white font-semibold ${
+                  participatedEvents.includes(index)
+                    ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                    : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-colors"
+                }`}
+                disabled={participatedEvents.includes(index)}
+              >
+                {participatedEvents.includes(index) ? "Participated" : "Participate"}
+              </button>
+            </div>
           </div>
 
           {/* Hover border effect */}
