@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { MapPin, Clock } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 // Sample event data
 const events = [
@@ -47,27 +47,22 @@ const events = [
 ];
 
 const EventsList = () => {
-    const router = useRouter();
-  
-    const handleEventClick = (eventId: number) => {
-      router.push(`/event/${eventId}`); // Navigate to event details page
-    };
-  
-    return (
-      <div className="space-y-4">
-        {events.map((event) => (
-          <div key={event.id} className="group">
-            <button
-              onClick={() => handleEventClick(event.id)}
-              className="w-full text-left text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700 transition-colors duration-300"
-            >
-              {event.name}
-            </button>
-            <hr className="border-t-2 border-purple-200 my-2" />
+  return (
+    <div className="space-y-4">
+      {events.map((event) => (
+        <Link 
+          href={`/events/${event.id}`}  // Changed to match Next.js App Router convention
+          key={event.id}
+          className="block group"
+        >
+          <div className="w-full text-left text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700 transition-colors duration-300">
+            {event.name}
           </div>
-        ))}
-      </div>
-    );
-  };
-  
-  export default EventsList;
+          <hr className="border-t-2 border-purple-200 my-2" />
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+export default EventsList;
